@@ -8,7 +8,7 @@
 // Bugs: 0
 // Nice to Have: Pass cleanUp to Manager
 //--------------------------------------------------------------------------------------
-
+// Esto es un comentario de prueba
 #pragma once
 #include "Header.h"
 
