@@ -95,6 +95,19 @@ void CMesh::createMeshMatrix(float Time, float x, float y, float z, float ScaleX
 	//XMMatrixTranspose(m_MeshMatrix.mWorld);
 }
 
+void CMesh::setMaterial(XMFLOAT4 LD, XMFLOAT4 SP, XMFLOAT4 SC, XMFLOAT4 DC, XMFLOAT4 Eye, XMFLOAT4 kDiffuse, XMFLOAT4 kAmbient, XMFLOAT4 kSpecular)
+{
+	m_MeshMatrix.ligthDir = LD;
+	m_MeshMatrix.SpecularPower = SP;
+	m_MeshMatrix.SpecularColor = SC;
+	m_MeshMatrix.difuseColor = DC;
+	m_MeshMatrix.vViewPosition = Eye;
+	m_MeshMatrix.kDiffuse = kDiffuse;
+	m_MeshMatrix.kAmbient = kAmbient;
+	m_MeshMatrix.kSpecular = kSpecular;
+
+}
+
 XMMATRIX CMesh::setMatrix()
 {
 

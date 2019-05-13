@@ -38,6 +38,8 @@ public:
 	void loadMeshText2(ID3D11Device* m_pd3dDevice);
 	void loadMeshText3(ID3D11Device* m_pd3dDevice);
 	void createMeshMatrix(float , float , float , float , float , float , float );
+	void setMaterial(XMFLOAT4 LD, XMFLOAT4 SP, XMFLOAT4 SC, XMFLOAT4 DC, XMFLOAT4 Eye, XMFLOAT4 kDiffuse, XMFLOAT4 kAmbient, XMFLOAT4 kSpecular);
+
 	XMMATRIX setMatrix();
 };
 

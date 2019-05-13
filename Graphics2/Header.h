@@ -12,8 +12,8 @@
 
 // <! Warning : This is important, uncomment the #define of the framework that you want to use >
 
-//#define DIRECTX 
-#define OPENGL
+#define DIRECTX 
+//#define OPENGL
 
 //--------------------------------------------------------------------------------------
 // GLOBAL MACROS, HEADERS AND INCLUDES
@@ -131,6 +131,9 @@ struct CBChangesEveryFrame
 	XMFLOAT4 SpecularColor;
 	XMFLOAT4 difuseColor;
 	XMFLOAT4 vViewPosition;
+	XMFLOAT4 kDiffuse;
+	XMFLOAT4 kAmbient;
+	XMFLOAT4 kSpecular;
 };
 
 

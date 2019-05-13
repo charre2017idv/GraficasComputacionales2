@@ -72,6 +72,9 @@ public:
 		XMFLOAT4 SpecularColor;
 		XMFLOAT4 difuseColor;
 		XMFLOAT4 vViewPosition;
+		XMFLOAT4 kDiffuse;
+		XMFLOAT4 kAmbient;
+		XMFLOAT4 kSpecular;
 	};
 
 	D3D11_SAMPLER_DESC sampDesc;

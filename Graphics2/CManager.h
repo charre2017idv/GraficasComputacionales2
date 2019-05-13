@@ -134,7 +134,7 @@ public:
 	void createTheSampleState(HRESULT &hr);
 
 	void Clear();
-
+		
 	// ImGui
 	void InitImGuiWindow();
 	void SetImGui();
@@ -179,10 +179,10 @@ public:
 	void LoadMesh4(int numVertices, int numIndices, aiVector3D* VertexArray, aiVector3D* textCoord, aiVector3D* Normals, std::vector<std::uint32_t>& IndexArray);
 	void readTextMesh4(int i);
 
-	XMFLOAT4 lightDir		= {-1,0,0,0};
-	XMFLOAT4 SpecularPower	= {1,0,0,0};
-	XMFLOAT4 SpecularColor	= {1,0,0,0};
-	XMFLOAT4 difuseColor	= { 0,0,1,.7};
+	XMFLOAT4 lightDir		= { -1,0,0,0.0 };
+	XMFLOAT4 SpecularPower  = { 0,1,.082,1 };
+	XMFLOAT4 SpecularColor  = { 1,0,.03,1 };
+	XMFLOAT4 difuseColor    = { .72,0,0.0,0.0 };
 
 	XMFLOAT4							NEye;
 
@@ -280,10 +280,10 @@ public:
 	float m_A = 1.0f;
 	float m_incrase = 0.05f;
 
-	float ligthDir[4] = { -1,-1,1,0.0 };
-	float difuseColo[4] = {0,1,.082,1};
+	float ligthDir[4]      = { -1,-1,1,0.0 };
+	float difuseColo[4]    = {0,1,.082,1};
 	float specularColor[4] = { 1,0,.03,1};
-	float specularPowe[4] = { .72,0,0.0,0.0 };
+	float specularPowe[4]  = { .72,0,0.0,0.0 };
 
 	// ImGui Data
 	int m_tris1 = 0;
