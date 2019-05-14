@@ -16,6 +16,7 @@ public:
 	CTexture2D					TextureMesh;
 	CTexture2D					TextureMesh_2;
 	string						textName;
+	string						normalName;
 	LPCWSTR						dirText;
 
 	TextAndMesh					TM;

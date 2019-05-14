@@ -529,6 +529,11 @@ void CManager::readTextMesh()
 			{
 				m_mesh[i].textName += (std::string)Path.data;
 			}
+			aiString Path2;
+			if (modelMaterial->GetTexture(aiTextureType_NORMALS, 0, &Path, NULL, NULL, NULL, NULL, NULL) == AI_SUCCESS)
+			{
+				m_mesh[i].normalName += (std::string)Path2.data;
+			}
 		}
 		m_mesh[i].loadMeshText(Dev.m_pd3dDevice);
 	}

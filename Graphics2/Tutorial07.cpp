@@ -565,7 +565,7 @@ void Draw(static float t)
 	//g_manager.DevContext.m_pImmediateContext->PSSetShaderResources(0, 1, &g_manager.Tex2D.m_pTextureRV);
 	g_manager.DevContext.m_pImmediateContext->PSSetSamplers(0, 1, &g_manager.Tex2D.m_pSamplerLinear);
 
-	// Set Vertex and Index
+	// Set Vertex and Index 
 	/* Square */
 	for (int i = 0; i < g_manager.m_mesh.size(); i++)
 	{
