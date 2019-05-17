@@ -45,8 +45,8 @@ struct TextAndMesh
 	LPCWSTR HomecomingText = L"CoC_iOS_HER_PPA_SEN_B_baseColor.png";
 
 	// Iron Man Halmet 
-	const char* IronHalmet = "Dwarf/Zelda/Iron_Man_Helmet.obj";
-	LPCWSTR IronHalmetTex = L"ALBEDO.jpg";
+	const char* IronHalmet = "Dwarf/Iron/Iron_Man_Helmet.obj";
+	LPCWSTR IronHalmetTex = L"ALBEDO.tga.png";
 
 	// Bocoblin <! ERROR >
 	const char* BocoblinMesh = "Dwarf/Bocoblin/Bokoblin.OBJ";

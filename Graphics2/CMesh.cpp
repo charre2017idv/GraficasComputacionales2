@@ -63,7 +63,7 @@ void CMesh::loadMeshText2(ID3D11Device* m_pd3dDevice)
 	//dirText = (LPCWSTR)wText;
 
 	//D3DX11CreateShaderResourceViewFromFile(m_pd3dDevice, dirText, NULL, NULL, &TextureMesh.m_pTextureRV, NULL);
-	D3DX11CreateShaderResourceViewFromFile(m_pd3dDevice, TM.squareTex, NULL, NULL, &TextureMesh.m_pTextureRV, NULL);
+	D3DX11CreateShaderResourceViewFromFile(m_pd3dDevice, TM.IronHalmetTex, NULL, NULL, &TextureMesh.m_pTextureRV, NULL);
 	//D3DX11CreateShaderResourceViewFromFile(m_pd3dDevice, TM.SciHelmetTex, NULL, NULL, &TextureMesh.m_pTextureRV, NULL);
 	//D3DX11CreateShaderResourceViewFromFile(m_pd3dDevice, L"CoC_iOS_HER_PPA_SEN_B_baseColor.png", NULL, NULL, &TextureMesh.m_pTextureRV, NULL);
 }

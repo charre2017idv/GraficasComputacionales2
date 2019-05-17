@@ -939,7 +939,7 @@ bool CManager::initDevide(HRESULT &hr, const HWND& hWnd)
 	filePaths3.push_back(TM.SMGMesh);
 	MeshGenerator3();
 
-	filePaths4.push_back(TM.squareMesh);
+	filePaths4.push_back(TM.IronHalmet);
 	//filePaths4.push_back(TM.SciHeletMesh);
 	MeshGenerator4();
 
