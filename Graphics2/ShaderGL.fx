@@ -50,8 +50,8 @@ void main()
 
 	v_Color = (NDLR * u_DifuseColor) + (SpecularFactor * u_SpecularColor);
 #else
-	v_wsPos = wsPos;
-	v_wsNorms = normalWS;
+	v_wsPos.xyz = wsPos.xyz;
+	v_wsNorms.xyz = normalWS.xyz;
 #endif
 
 	//v_Color = NDLR;

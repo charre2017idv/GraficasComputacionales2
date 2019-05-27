@@ -529,11 +529,6 @@ void CManager::readTextMesh()
 			{
 				m_mesh[i].textName += (std::string)Path.data;
 			}
-			aiString Path2;
-			if (modelMaterial->GetTexture(aiTextureType_NORMALS, 0, &Path, NULL, NULL, NULL, NULL, NULL) == AI_SUCCESS)
-			{
-				m_mesh[i].normalName += (std::string)Path2.data;
-			}
 		}
 		m_mesh[i].loadMeshText(Dev.m_pd3dDevice);
 	}
@@ -939,7 +934,7 @@ bool CManager::initDevide(HRESULT &hr, const HWND& hWnd)
 	filePaths3.push_back(TM.SMGMesh);
 	MeshGenerator3();
 
-	filePaths4.push_back(TM.IronHalmet);
+	filePaths4.push_back(TM.squareMesh);
 	//filePaths4.push_back(TM.SciHeletMesh);
 	MeshGenerator4();
 

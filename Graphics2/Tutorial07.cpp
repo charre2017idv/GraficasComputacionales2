@@ -8,7 +8,7 @@
 // Bugs: 0
 // Nice to Have: Pass cleanUp to Manager
 //--------------------------------------------------------------------------------------
-// Esto es un comentario de prueba
+
 #pragma once
 #include "Header.h"
 
@@ -348,15 +348,21 @@ void Draw2(float t)
 	{
 		g_manager.m_mesh[i].createMeshMatrix(0.0f, 3, 1, 0, 0.3f, 0.3f, 0.3f);
 
+		g_manager.m_mesh[i].m_MeshMatrix.ligthDir	   = g_manager.lightDir;
+		g_manager.m_mesh[i].m_MeshMatrix.SpecularPower = g_manager.SpecularPower;
+		g_manager.m_mesh[i].m_MeshMatrix.SpecularColor = g_manager.SpecularColor;
+		g_manager.m_mesh[i].m_MeshMatrix.difuseColor   = g_manager.difuseColor;
+		g_manager.m_mesh[i].m_MeshMatrix.vViewPosition = g_manager.NEye;
+
 		g_manager.m_mesh[i].setMaterial(
 			g_manager.lightDir,
 			g_manager.SpecularPower,
 			g_manager.SpecularColor,
 			g_manager.difuseColor,
 			g_manager.NEye,
-			XMFLOAT4( 0,0,1,.7 ),
-			XMFLOAT4( 0,0,1,.7 ),
-			XMFLOAT4( 0,0,1,.7 ));
+			g_manager.NEye,
+			g_manager.NEye,
+			g_manager.NEye);
 
 		g_manager.m_mesh[i].TextureMesh.m_pTextureRV = g_manager.RTT.m_shaderResourceView;
 
@@ -387,15 +393,11 @@ void Draw2(float t)
 		g_manager.m_mesh2[i].createMeshMatrix(t, -3, 0, 0, 0.03f, 0.03f, 0.03f); // Front view: XM_PIDIV4 * 180
 		g_manager.m_mesh2[i].m_MeshMatrix.vMeshColor = g_manager.m_vMeshColor;
 
-		g_manager.m_mesh2[i].setMaterial(
-			g_manager.lightDir,
-			g_manager.SpecularPower,
-			g_manager.SpecularColor,
-			g_manager.difuseColor,
-			g_manager.NEye,
-			XMFLOAT4(0, 0, 1, .7),
-			XMFLOAT4(0, 0, 1, .7),
-			XMFLOAT4(0, 0, 1, .7));
+		g_manager.m_mesh2[i].m_MeshMatrix.ligthDir = g_manager.lightDir;
+		g_manager.m_mesh2[i].m_MeshMatrix.SpecularPower = g_manager.SpecularPower;
+		g_manager.m_mesh2[i].m_MeshMatrix.SpecularColor = g_manager.SpecularColor;
+		g_manager.m_mesh2[i].m_MeshMatrix.difuseColor = g_manager.difuseColor;
+		g_manager.m_mesh2[i].m_MeshMatrix.vViewPosition = g_manager.NEye;
 
 		g_manager.DevContext.m_pImmediateContext->PSSetShaderResources(0, 1, &g_manager.m_mesh2[i].TextureMesh.m_pTextureRV);
 
@@ -426,15 +428,12 @@ void Draw2(float t)
 
 		g_manager.m_mesh3[i].m_MeshMatrix.vMeshColor = g_manager.m_vMeshColor;
 		
-		g_manager.m_mesh3[i].setMaterial(
-			g_manager.lightDir,
-			g_manager.SpecularPower,
-			g_manager.SpecularColor,
-			g_manager.difuseColor,
-			g_manager.NEye,
-			XMFLOAT4(0, 0, 1, .7),
-			XMFLOAT4(0, 0, 1, .7),
-			XMFLOAT4(0, 0, 1, .7));
+
+		g_manager.m_mesh3[i].m_MeshMatrix.ligthDir = g_manager.lightDir;
+		g_manager.m_mesh3[i].m_MeshMatrix.SpecularPower = g_manager.SpecularPower;
+		g_manager.m_mesh3[i].m_MeshMatrix.SpecularColor = g_manager.SpecularColor;
+		g_manager.m_mesh3[i].m_MeshMatrix.difuseColor = g_manager.difuseColor;
+		g_manager.m_mesh3[i].m_MeshMatrix.vViewPosition = g_manager.NEye;
 
 
 		g_manager.DevContext.m_pImmediateContext->PSSetShaderResources(0, 1, &g_manager.m_mesh3[i].TextureMesh.m_pTextureRV);
@@ -462,15 +461,12 @@ void Draw2(float t)
 
 
 		g_manager.m_mesh4[i].m_MeshMatrix.vMeshColor = g_manager.m_vMeshColor;
-		g_manager.m_mesh4[i].setMaterial(
-			g_manager.lightDir,
-			g_manager.SpecularPower,
-			g_manager.SpecularColor,
-			g_manager.difuseColor,
-			g_manager.NEye,
-			XMFLOAT4(0, 0, 1, .7),
-			XMFLOAT4(0, 0, 1, .7),
-			XMFLOAT4(0, 0, 1, .7));
+
+		g_manager.m_mesh4[i].m_MeshMatrix.ligthDir = g_manager.lightDir;
+		g_manager.m_mesh4[i].m_MeshMatrix.SpecularPower = g_manager.SpecularPower;
+		g_manager.m_mesh4[i].m_MeshMatrix.SpecularColor = g_manager.SpecularColor;
+		g_manager.m_mesh4[i].m_MeshMatrix.difuseColor = g_manager.difuseColor;
+		g_manager.m_mesh4[i].m_MeshMatrix.vViewPosition = g_manager.NEye;
 
 		g_manager.DevContext.m_pImmediateContext->PSSetShaderResources(0, 1, &g_manager.m_mesh4[i].TextureMesh.m_pTextureRV);
 
@@ -565,21 +561,18 @@ void Draw(static float t)
 	//g_manager.DevContext.m_pImmediateContext->PSSetShaderResources(0, 1, &g_manager.Tex2D.m_pTextureRV);
 	g_manager.DevContext.m_pImmediateContext->PSSetSamplers(0, 1, &g_manager.Tex2D.m_pSamplerLinear);
 
-	// Set Vertex and Index 
+	// Set Vertex and Index
 	/* Square */
 	for (int i = 0; i < g_manager.m_mesh.size(); i++)
 	{
 		g_manager.m_mesh[i].createMeshMatrix(0.0f, 3, 1, 0, 0.3f, 0.3f, 0.3f);
 
-		g_manager.m_mesh[i].setMaterial(
-			g_manager.lightDir,
-			g_manager.SpecularPower,
-			g_manager.SpecularColor,
-			g_manager.difuseColor,
-			g_manager.NEye,
-			XMFLOAT4(0, 0, 1, .7),
-			XMFLOAT4(0, 0, 1, .7),
-			XMFLOAT4(0, 0, 1, .7));
+		g_manager.m_mesh[i].m_MeshMatrix.ligthDir = g_manager.lightDir;
+		g_manager.m_mesh[i].m_MeshMatrix.SpecularPower = g_manager.SpecularPower;
+		g_manager.m_mesh[i].m_MeshMatrix.SpecularColor = g_manager.SpecularColor;
+		g_manager.m_mesh[i].m_MeshMatrix.difuseColor = g_manager.difuseColor;
+		g_manager.m_mesh[i].m_MeshMatrix.vViewPosition = g_manager.NEye;
+
 
 		g_manager.m_mesh[i].TextureMesh.m_pTextureRV = g_manager.RTT.m_shaderResourceView;
 		g_manager.m_mesh[i].m_MeshMatrix.vMeshColor = g_manager.m_vMeshColor;
@@ -609,15 +602,11 @@ void Draw(static float t)
 		g_manager.m_mesh2[i].createMeshMatrix(t, .5, 3, -4, 0.03f, 0.03f, 0.03f); // Front view: XM_PIDIV4 * 180
 		g_manager.m_mesh2[i].m_MeshMatrix.vMeshColor = g_manager.m_vMeshColor;
 
-		g_manager.m_mesh2[i].setMaterial(
-			g_manager.lightDir,
-			g_manager.SpecularPower,
-			g_manager.SpecularColor,
-			g_manager.difuseColor,
-			g_manager.NEye,
-			XMFLOAT4(0, 0, 1, .7),
-			XMFLOAT4(0, 0, 1, .7),
-			XMFLOAT4(0, 0, 1, .7));
+		g_manager.m_mesh2[i].m_MeshMatrix.ligthDir = g_manager.lightDir;
+		g_manager.m_mesh2[i].m_MeshMatrix.SpecularPower = g_manager.SpecularPower;
+		g_manager.m_mesh2[i].m_MeshMatrix.SpecularColor = g_manager.SpecularColor;
+		g_manager.m_mesh2[i].m_MeshMatrix.difuseColor = g_manager.difuseColor;
+		g_manager.m_mesh2[i].m_MeshMatrix.vViewPosition = g_manager.NEye;
 
 		g_manager.DevContext.m_pImmediateContext->PSSetShaderResources(0, 1, &g_manager.m_mesh2[i].TextureMesh.m_pTextureRV);
 
@@ -643,15 +632,12 @@ void Draw(static float t)
 		g_manager.Camera.createMeshMatrix();
 		g_manager.m_mesh3[i].m_MeshMatrix.mWorld = g_manager.Camera.CameraMatrix.mWorld;
 		//g_manager.m_mesh3[i].createMeshMatrix(1.0f, 0, 0, 0, 0.03f, 0.03f, 0.03f);
-		g_manager.m_mesh3[i].setMaterial(
-			g_manager.lightDir,
-			g_manager.SpecularPower,
-			g_manager.SpecularColor,
-			g_manager.difuseColor,
-			g_manager.NEye,
-			XMFLOAT4(0, 0, 1, .7),
-			XMFLOAT4(0, 0, 1, .7),
-			XMFLOAT4(0, 0, 1, .7));
+
+		g_manager.m_mesh3[i].m_MeshMatrix.ligthDir = g_manager.lightDir;
+		g_manager.m_mesh3[i].m_MeshMatrix.SpecularPower = g_manager.SpecularPower;
+		g_manager.m_mesh3[i].m_MeshMatrix.SpecularColor = g_manager.SpecularColor;
+		g_manager.m_mesh3[i].m_MeshMatrix.difuseColor = g_manager.difuseColor;
+		g_manager.m_mesh3[i].m_MeshMatrix.vViewPosition = g_manager.NEye;
 
 		g_manager.m_mesh3[i].m_MeshMatrix.vMeshColor = g_manager.m_vMeshColor;
 
@@ -680,15 +666,12 @@ void Draw(static float t)
 
 		g_manager.m_mesh4[i].m_MeshMatrix.vMeshColor = g_manager.m_vMeshColor;
 
-		g_manager.m_mesh4[i].setMaterial(
-			g_manager.lightDir,
-			g_manager.SpecularPower,
-			g_manager.SpecularColor,
-			g_manager.difuseColor,
-			g_manager.NEye,
-			XMFLOAT4(0, 0, 1, .7),
-			XMFLOAT4(0, 0, 1, .7),
-			XMFLOAT4(0, 0, 1, .7));
+
+		g_manager.m_mesh4[i].m_MeshMatrix.SpecularPower = g_manager.SpecularPower;
+		g_manager.m_mesh4[i].m_MeshMatrix.ligthDir = g_manager.lightDir;
+		g_manager.m_mesh4[i].m_MeshMatrix.SpecularColor = g_manager.SpecularColor;
+		g_manager.m_mesh4[i].m_MeshMatrix.difuseColor = g_manager.difuseColor;
+		g_manager.m_mesh4[i].m_MeshMatrix.vViewPosition = g_manager.NEye;
 
 		g_manager.DevContext.m_pImmediateContext->PSSetShaderResources(0, 1, &g_manager.m_mesh4[i].TextureMesh.m_pTextureRV);
 

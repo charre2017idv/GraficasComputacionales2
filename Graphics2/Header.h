@@ -5,15 +5,15 @@
 // Creation Date: 09/04/2019
 // Author: Roberto Charreton Kaplun
 // Summary: This is the resource document that gives the correct data between DirectX and OpengGL
-// Errors: 
+// Errors:  
 // Bugs: 
 // Nice to Have: Combine structs on OpenGl and DirectX
 //--------------------------------------------------------------------------------------
 
 // <! Warning : This is important, uncomment the #define of the framework that you want to use >
 
-#define DIRECTX 
-//#define OPENGL
+//#define DIRECTX 
+#define OPENGL
 
 //--------------------------------------------------------------------------------------
 // GLOBAL MACROS, HEADERS AND INCLUDES
@@ -45,8 +45,8 @@ struct TextAndMesh
 	LPCWSTR HomecomingText = L"CoC_iOS_HER_PPA_SEN_B_baseColor.png";
 
 	// Iron Man Halmet 
-	const char* IronHalmet = "Dwarf/Iron/Iron_Man_Helmet.obj";
-	LPCWSTR IronHalmetTex = L"ALBEDO.tga.png";
+	const char* IronHalmet = "Dwarf/Zelda/Iron_Man_Helmet.obj";
+	LPCWSTR IronHalmetTex = L"ALBEDO.jpg";
 
 	// Bocoblin <! ERROR >
 	const char* BocoblinMesh = "Dwarf/Bocoblin/Bokoblin.OBJ";
